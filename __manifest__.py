@@ -10,8 +10,8 @@
         Long description of module's purpose
     """,
 
-    'author': "Ismail EL BAKKALI",
-    'website': "http://www.odootutoriels.com",
+    'author': "Farid Adwani",
+    'website': "",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/master/odoo/addons/base/module/module_data.xml
@@ -30,6 +30,8 @@
         'views/professor_views.xml',
         'views/classroom_views.xml',
         'views/subject_views.xml',
+        'views/groups.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

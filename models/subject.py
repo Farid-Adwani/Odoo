@@ -7,6 +7,7 @@ class UniversitySubject(models.Model):
 
     name = fields.Char()
     code = fields.Char()
+    statut = fields.Selection([('one','1'),('Two','2'),('Three','3')])
     depatment_id=fields.Many2one(comodel_name='university.depatment')
     student_ids=fields.Many2many(comodel_name='university.student',
                                  relation='subject_student',

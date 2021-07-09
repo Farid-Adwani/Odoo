@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="group_list_view">
+      <field name="name">groups list</field>
+      <field name="model">university.student</field>
+      <field name="inherit_id" ref="student_list_view"/>
+      <field name="arch" type="xml">
+        <field name="sexe" position="before">
+          <field name="field_1"/>
+          <field name="field_2"/>
+        </field>
+      </field>
+    </record>
+
+    <!-- explicit from view definition -->
+
+    <record model="ir.ui.view" id="groups_form_view">
+      <field name="name">Student From</field>
+      <field name="model">university.student</field>
+      <field name="inherit_id" ref="student_form_view"/>
+      <field name="arch" type="xml">
+          <field name="birthday" position="before">
+            <field name="field_1"/>
+            <field name="field_2"/>
+          </field>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="groups_action_window">
+      <field name="name">groups window</field>
+      <field name="res_model">university.student</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- menu categories -->
+
+    <menuitem name="Groups" id="university_groups_cat" parent="university.menu_root"/>
+    <!--<menuitem name="Menu 2" id="university.menu_2" parent="university.menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="List of groups" id="university_groups_list" parent="university_groups_cat"
+              action="groups_action_window"/>
+    <!--<menuitem name="Server to list" id="university" parent="university.menu_2"-->
+              <!--action="university.action_server"/>-->
+
+  </data>
+</odoo>

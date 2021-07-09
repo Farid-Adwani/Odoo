@@ -23,20 +23,32 @@
       <field name="name">Subject From</field>
       <field name="model">university.subject</field>
       <field name="arch" type="xml">
-        <form>
-          <group>
-            <field name="name"/>
-            <field name="code"/>
-            <field name="depatment_id"/>
-          </group>
-          <notebook>
-            <page string="List of Professors">
-              <field name="professor_ids"/>
-            </page>
-            <page string="List of Students">
-              <field name="student_ids"/>
-            </page>
-          </notebook>
+          <form string="Subject form">
+              <header>
+                  <field name="statut" widget="statusbar"/>
+              </header>
+              <group colspan="4">
+                <group colspan="2" col="2">
+                    <separator string="General stuff" colspan="2"/>
+                    <field name="name"/>
+                    <field name="code"/>
+                </group>
+
+                <group colspan="2" col="2">
+                    <separator string="Dates" colspan="2"/>
+                    <field name="code"/>
+                    <field name="code" readonly="1"/>
+                </group>
+            </group>
+            <group>
+                <notebook colspan="4">
+                    <page string="Description">
+                        <field name="depatment_id" nolabel="1"/>
+                        <field name="student_ids" nolabel="1"/>
+                    </page>
+                </notebook>
+                <field name="depatment_id"/>
+            </group>
         </form>
       </field>
     </record>

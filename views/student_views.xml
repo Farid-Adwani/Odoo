@@ -79,7 +79,7 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="student_action_window">
-      <field name="name">student window</field>
+      <field name="name">Student window</field>
       <field name="res_model">university.student</field>
       <field name="view_mode">tree,form</field>
     </record>

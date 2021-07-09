@@ -5,6 +5,7 @@ from odoo import models, fields, api
 class UniversityStudent(models.Model):
     _name = 'university.student'
     _inherit = 'mail.thread'
+    _description='Student of INSAT'
 
     f_name = fields.Char(string='Fist name',required=True,help='This is the First name ',index=True)
     l_name = fields.Char('Last name')
