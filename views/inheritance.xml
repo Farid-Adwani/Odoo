@@ -1,0 +1,55 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="inheritance_form_view">
+      <field name="name">Inheritance list</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+      <field name="arch" type="xml">
+        <field name="phone" position="after">
+            <field name="esm"/>
+            <field name="image" widget="image"/>
+        </field>
+      </field>
+    </record>
+
+
+    <record id="inheritance_view_tree" model="ir.ui.view">
+        <field name="name">inheritance List</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+        <field name="arch" type="xml">
+            <field name="team_id" position="before">
+                <field name="esm"/>
+                <field name="image" widget="image"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="inheritance_view_kanban" model="ir.ui.view">
+        <field name="name">inheritance Kanban</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="before">
+                <field name="esm"/>
+                <field name="image" widget="image"/>
+            </field>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="inheritance_action_window">
+      <field name="name">Inheritance window</field>
+      <field name="res_model">crm.lead</field>
+      <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+
+
+    <menuitem name="Inheritance" id="inheritance" action="inheritance_action_window"/>
+
+
+
+  </data>
+</odoo>

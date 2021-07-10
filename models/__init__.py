@@ -2,6 +2,7 @@
 
 from . import student
 from . import professor
+from . import inheritance
 from . import depatment
 from . import subject
 from . import classroom

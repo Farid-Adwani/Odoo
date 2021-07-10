@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','mail'],
+    'depends': ['base','mail','crm'],
 
     # always loaded
     'data': [
@@ -31,7 +31,7 @@
         'views/classroom_views.xml',
         'views/subject_views.xml',
         'views/groups.xml',
-
+        'views/inheritance.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
