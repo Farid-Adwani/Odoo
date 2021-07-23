@@ -18,7 +18,7 @@ class UniversityStudent(models.Model):
     phone = fields.Char()
     lucky_number=fields.Float(string='Lucky number',compute='lucky_func')
     classmates=fields.One2many(related='classroom_id.student_ids')
-    state = fields.Selection([('s1','mpi'),('s2','2eme'),('s3','3eme'),('s4','4eme'),('s5','5eme')])
+    statut = fields.Selection([('s1','mpi'),('s2','2eme'),('s3','3eme'),('s4','4eme'),('s5','5eme')], default='s1', clickable=True)
     depatment_id=fields.Many2one(comodel_name='university.depatment')
     classroom_id=fields.Many2one(comodel_name='university.classroom')
     subject_ids = fields.Many2many(comodel_name='university.subject',
@@ -27,8 +27,7 @@ class UniversityStudent(models.Model):
                                    column2='name')
 
     def lucky_func(self):
-        self.lucky_number=len(self.subject_ids)*len(self.f_name)*(self.l_name.count(self.f_name[0])+0.5)
-
+        self.lucky_number=len(self.subject_ids)*len(self.f_name)*((self.l_name).count(self.f_name[0])+0.5)
     def name_get(self):
         result = []
         for student in self:
@@ -36,16 +35,15 @@ class UniversityStudent(models.Model):
             result.append((student.id,alias))
         return result
 
-
     def next_state(self):
-        if self.state=='s1':
-            return self.write({'state':'s2'})
-        elif self.state=='s2':
-            return self.write({'state':'s3'})
-        elif self.state=='s3':
-            return self.write({'state':'s4'})
-        elif self.state=='s4':
-            return self.write({'state':'s5'})
+        if self.statut=='s1':
+            return self.write({'statut':'s2'})
+        elif self.statut=='s2':
+            return self.write({'statut':'s3'})
+        elif self.statut=='s3':
+            return self.write({'statut':'s4'})
+        elif self.statut=='s4':
+            return self.write({'statut':'s5'})
         else:
             return {'warning': {'title': 'Warning',
                                 'message': 'Where are you going , you finished your study...'}}

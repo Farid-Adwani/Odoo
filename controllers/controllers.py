@@ -1,10 +1,15 @@
-# -*- coding: utf-8 -*-
 from odoo import http
 
-# class University(http.Controller):
-#     @http.route('/university/university/', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+class UniversityController(http.Controller):
+    @http.route('/university/controller/', auth='user')
+    def index(self, **kw):
+        students=http.request.env['university.student'].search(['|',('f_name','=','farid'),('f_name','=','Siwar')])
+        returnsentence='<h1>Les etudiants sont : </h1>\n<ol>'
+        for s in students:
+            returnsentence+='<li>'+s['f_name']+'  '+s['l_name'] + ' de class '+s['classroom_id']['name']+'</li>'
+        returnsentence += '</ol>'
+        print(returnsentence)
+        return returnsentence
 
 #     @http.route('/university/university/objects/', auth='public')
 #     def list(self, **kw):
@@ -18,3 +23,10 @@ from odoo import http
 #         return http.request.render('university.object', {
 #             'object': obj
 #         })
+
+
+class fils(UniversityController):
+    @http.route('/fils',auth='public')
+    def filshandler(self, **kw):
+        print('Hi from fils');
+        return super(fils, self).index();

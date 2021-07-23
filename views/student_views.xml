@@ -30,7 +30,7 @@
           <sheet>
             <header>
               <button name="next_state" type="object" class="oe_highlight" string="Next Year"></button>
-              <field name="state" widget="statusbar" ></field>
+              <field name="statut" widget="statusbar" ></field>
             </header>
             <group>
               <group>
@@ -39,7 +39,6 @@
               <field name="sexe"/>
               <field name="identity_card"/>
               <field name="birthday"/>
-              <field name="state"/>
               <field name="lucky_number"/>
               <field name="id"/>
               <field name="create_date"/>
