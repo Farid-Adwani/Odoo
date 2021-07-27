@@ -8,7 +8,7 @@ class UniversityStudent(models.Model):
     _description='Student of INSAT'
 
     f_name = fields.Char(string='Fist name',required=True,help='This is the First name ',index=True)
-    l_name = fields.Char('Last name')
+    l_name = fields.Char('Last name',required=True)
     sexe = fields.Selection([('male', 'Male'), ('female', 'Female')])
     identity_card = fields.Char('Identity card')
     address = fields.Text('Address')
@@ -20,7 +20,7 @@ class UniversityStudent(models.Model):
     classmates=fields.One2many(related='classroom_id.student_ids')
     statut = fields.Selection([('s1','mpi'),('s2','2eme'),('s3','3eme'),('s4','4eme'),('s5','5eme')], default='s1', clickable=True)
     depatment_id=fields.Many2one(comodel_name='university.depatment')
-    classroom_id=fields.Many2one(comodel_name='university.classroom')
+    classroom_id=fields.Many2one(comodel_name='university.classroom',required=True)
     subject_ids = fields.Many2many(comodel_name='university.subject',
                                    relation='student_subject',
                                    column1='f_name',

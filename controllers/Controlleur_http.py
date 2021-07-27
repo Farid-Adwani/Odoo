@@ -3,7 +3,7 @@ from odoo import http
 class UniversityController(http.Controller):
     @http.route('/university/controller/', auth='user')
     def index(self, **kw):
-        students=http.request.env['university.student'].search(['|',('f_name','=','farid'),('f_name','=','Siwar')])
+        students=http.request.env['university.student'].search([])
         returnsentence='<h1>Les etudiants sont : </h1>\n<ol>'
         for s in students:
             returnsentence+='<li>'+s['f_name']+'  '+s['l_name'] + ' de class '+s['classroom_id']['name']+'</li>'
